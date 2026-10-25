@@ -197,12 +197,23 @@
   const empty = document.getElementById("issues-empty");
   let cards = [], loaded = false;
 
+  // Scroll box: exactly 4 entries tall (entries differ in height); 4 or fewer = no limit.
+  function fitList() {
+    list.style.maxHeight = "";
+    list.scrollTop = 0;
+    const li = list.children;
+    if (li.length > 4) list.style.maxHeight = (li[4].getBoundingClientRect().top - li[0].getBoundingClientRect().top) + "px";
+  }
+  window.addEventListener("resize", fitList);
+  if (document.fonts) document.fonts.ready.then(fitList);   // web fonts change row heights
+
   function renderIssues() {
     if (!loaded) return;   // still loading or failed: keep that message
     const rows = cards.filter(c => boardMatch(c, filter));
     list.innerHTML = rows.map(boardHtml).join("");
     empty.hidden = rows.length > 0;
     empty.textContent = cards.length ? "Nothing matches these filters." : "Nothing on the board yet.";
+    fitList();
   }
 
   document.querySelectorAll(".filters .seg").forEach(group => {
