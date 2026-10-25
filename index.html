@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reclaim The World</title>
+<meta name="description" content="Reclaim The World: a supply-lines mod for Infection Free Zone. Roadmap and board.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@600;800&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="globe" aria-hidden="true"></canvas>
+<div class="readout" aria-hidden="true"><span id="readout-lon">93.8° E</span><span>30.0° N</span></div>
+
+<main class="page">
+
+  <header class="hero">
+    <h1>Reclaim The World</h1>
+    <p class="eyebrow">Infection Free Zone · BepInEx 5 mod</p>
+    <p class="lede">Settlements left behind keep producing. Their surplus follows the convoy, so every cleared region adds to the next.</p>
+    <div class="hero-row">
+      <span class="chip chip-live">In development · no public build yet</span>
+      <nav class="hero-links" aria-label="Sections">
+        <a href="#roadmap">Roadmap</a>
+        <a href="#board">Board</a>
+        <a href="#feedback">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="roadmap" class="card">
+    <div class="section-head">
+      <h2>Roadmap</h2>
+      <p class="note">One complete mechanic per release. No dates.</p>
+    </div>
+
+    <ol class="route">
+      <li class="stop done">
+        <div class="stop-head"><span class="stop-tag">Groundwork</span><span class="status s-done">Done</span></div>
+        <p>Game code mapped, build pipeline in place, a data plugin reading the settlement live.</p>
+      </li>
+      <li class="stop current">
+        <div class="stop-head"><span class="stop-tag">Release 1 · Live panel</span><span class="status s-progress">In progress</span></div>
+        <p>First public test build.</p>
+        <ul>
+          <li>An in-game panel for the current settlement, in the game's own style (F8)</li>
+          <li>Production by building: workers, recipes, inputs and outputs</li>
+          <li>Balance per resource: produced, used, net, stock</li>
+          <li>Select a resource to see what makes it and what uses it</li>
+          <li>Install guide</li>
+        </ul>
+      </li>
+      <li class="stop">
+        <div class="stop-head"><span class="stop-tag">Release 2 · Supply lines</span><span class="status s-planned">Planned</span></div>
+        <p>The core of the mod.</p>
+        <ul>
+          <li>When the convoy leaves, the settlement's full state is saved</li>
+          <li>Every day, each old settlement's surplus arrives at the current one</li>
+          <li>Shortfalls follow the game's own rules: the current settlement covers the gap</li>
+          <li>Page through the settlements in the panel</li>
+        </ul>
+      </li>
+      <li class="stop">
+        <div class="stop-head"><span class="stop-tag">Release 3 · Settlement overview</span><span class="status s-planned">Planned</span></div>
+        <p>A larger view on the pause screen: the settlements on the globe, click one for its stats. If the globe can't be reused, a list with richer stats instead.</p>
+      </li>
+    </ol>
+    <p class="note">Everything beyond this lives on the board as ideas: remote management, specialised settlements, trading.</p>
+  </section>
+
+  <section id="board" class="card">
+    <div class="section-head">
+      <h2>Board</h2>
+      <p class="note">Bugs and ideas, with their status. Kept in this project's <a href="https://github.com/Dimi-GE/ifz-reclaim-the-world/issues">GitHub Issues</a>.</p>
+    </div>
+
+    <div class="filters">
+      <div class="seg" role="group" aria-label="Type">
+        <button type="button" class="on" data-type="all">All</button>
+        <button type="button" data-type="bug">Bug</button>
+        <button type="button" data-type="idea">Idea</button>
+      </div>
+      <div class="seg" role="group" aria-label="Status">
+        <button type="button" class="on" data-status="all">Any</button>
+        <button type="button" data-status="new">New</button>
+        <button type="button" data-status="todo">To do</button>
+        <button type="button" data-status="progress">In progress</button>
+        <button type="button" data-status="done">Done</button>
+      </div>
+    </div>
+
+    <ul id="issues" class="issues"></ul>
+    <p id="issues-empty" class="empty">Loading the board…</p>
+  </section>
+
+  <section id="feedback" class="card">
+    <div class="section-head">
+      <h2>Send feedback</h2>
+    </div>
+
+    <div class="construction" role="note"><span>This Section Is Under Construction</span></div>
+
+    <form id="fb" novalidate hidden>
+      <fieldset class="seg seg-form">
+        <legend>Category</legend>
+        <label><input type="radio" name="cat" value="bug" id="cat-bug" checked> Bug</label>
+        <label><input type="radio" name="cat" value="idea" id="cat-idea"> Idea</label>
+      </fieldset>
+
+      <div class="field">
+        <label for="fb-title">Title</label>
+        <input id="fb-title" type="text" maxlength="120" placeholder="Food shipments stop after loading a save">
+      </div>
+
+      <div class="field">
+        <label for="fb-body">Details</label>
+        <textarea id="fb-body" rows="5" placeholder="What happened, what you expected, steps to repeat it."></textarea>
+      </div>
+
+      <div class="field-row" id="version-fields">
+        <div class="field">
+          <label for="fb-game">Game version</label>
+          <input id="fb-game" type="text" placeholder="Main menu, bottom corner">
+        </div>
+        <div class="field">
+          <label for="fb-mod">Mod version</label>
+          <input id="fb-mod" type="text" placeholder="Panel header">
+        </div>
+      </div>
+
+      <p id="fb-error" class="error" hidden></p>
+      <button type="submit" class="btn">Send report</button>
+      <p id="fb-result" class="result" hidden></p>
+    </form>
+  </section>
+
+  <section id="about" class="card card-quiet">
+    <h2>How it's built</h2>
+    <p>Originated by Dimi-GE, powered by Claude.</p>
+    <p>Contributors: your name could be here.</p>
+  </section>
+
+  <footer class="foot">
+    <p>© 2026 DGE (Dmytro Bielyi) · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> · Fan-made mod, not affiliated with the developers of Infection Free Zone · Map data: Natural Earth (public domain)</p>
+    <p><a href="https://github.com/Dimi-GE">GitHub: Dimi-GE</a></p>
+  </footer>
+</main>
+
+<script src="land.js"></script>
+<script src="board.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
