@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reclaim The World Core</title>
+<meta name="description" content="The required base for the Reclaim The World mods for Infection Free Zone. It reads the game for them and gives their windows the game's own look. Does nothing visible on its own: install it, then add Settlement Panel and/or Supply Lines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@600;800&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page page-mod">
+
+  <nav class="subnav" aria-label="Modules">
+    <a href="index.html#modules">← Reclaim The World</a>
+    <a href="settlement-panel.html">Settlement Panel</a>
+    <a href="supply-lines.html">Supply Lines</a>
+  </nav>
+
+  <header class="hero">
+    <h1>Reclaim The World Core</h1>
+    <p class="eyebrow">Module · by Dimi-GE</p>
+  </header>
+
+  <section class="card diagram">
+    <figure class="shot">
+<svg viewBox="0 0 1600 900" width="100%" role="img" xmlns="http://www.w3.org/2000/svg"><title>Core: reads the game, shares it with the modules; Supply Lines changes the stock at sunrise</title><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="dg-arrow" d="M0 0L10 5L0 10z"/></marker><marker id="ahm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="dg-arrow-m" d="M0 0L10 5L0 10z"/></marker></defs><rect class="dg-bg" x="0" y="0" width="1600" height="900" rx="0"/><text class="dg-title" x="60" y="100">Core</text><text class="dg-sub" x="60" y="140">Required base</text><rect class="dg-box" x="340" y="50" width="920" height="90" rx="6"/><text class="dg-label" x="800" y="103" text-anchor="middle">Infection Free Zone</text><path class="dg-flow-m" d="M800 142 V246" marker-end="url(#ahm)"/><text class="dg-sm18 dg-muted" x="816" y="204">read-only</text><rect class="dg-frame" x="340" y="250" width="920" height="280" rx="8"/><text class="dg-label" x="370" y="290">Reclaim The World Core</text><rect class="dg-box" x="370" y="320" width="260" height="170" rx="6"/><text class="dg-label" x="500" y="392" text-anchor="middle">Reads the game</text><text class="dg-sm14 dg-muted" x="500" y="428" text-anchor="middle">shared with every module</text><g><circle class="dg-call" cx="370" cy="320" r="16"/><text class="dg-call-n" x="370" y="326" text-anchor="middle">1</text></g><rect class="dg-box" x="670" y="320" width="260" height="170" rx="6"/><text class="dg-label" x="800" y="392" text-anchor="middle">Style kit</text><text class="dg-sm14 dg-muted" x="800" y="428" text-anchor="middle">windows in the game's look</text><g><circle class="dg-call" cx="670" cy="320" r="16"/><text class="dg-call-n" x="670" y="326" text-anchor="middle">2</text></g><rect class="dg-box" x="970" y="320" width="260" height="170" rx="6"/><text class="dg-label" x="1100" y="392" text-anchor="middle">Module API</text><text class="dg-sm14 dg-muted" x="1100" y="428" text-anchor="middle">public API · MIT</text><g><circle class="dg-call" cx="970" cy="320" r="16"/><text class="dg-call-n" x="970" y="326" text-anchor="middle">3</text></g><path class="dg-flow-m" d="M500 532 V646" marker-end="url(#ahm)"/><path class="dg-flow-m" d="M800 532 V646" marker-end="url(#ahm)"/><path class="dg-flow-m" d="M1100 532 V646" marker-end="url(#ahm)"/><rect class="dg-box" x="370" y="650" width="260" height="110" rx="6"/><text class="dg-label" x="500" y="712" text-anchor="middle">Settlement Panel</text><g><circle class="dg-call" cx="370" cy="650" r="16"/><text class="dg-call-n" x="370" y="656" text-anchor="middle">4</text></g><rect class="dg-box" x="670" y="650" width="260" height="110" rx="6"/><text class="dg-label" x="800" y="712" text-anchor="middle">Supply Lines</text><rect class="dg-box-dash" x="970" y="650" width="260" height="110" rx="6"/><text class="dg-label dg-muted" x="1100" y="712" text-anchor="middle">New module</text><text class="dg-sub" x="370" y="802">each needs Core</text><path class="dg-flow" d="M800 762 V830 H1330 V95 H1262" marker-end="url(#ah)"/><g><circle class="dg-call" cx="1330" cy="400" r="16"/><text class="dg-call-n" x="1330" y="406" text-anchor="middle">5</text></g><text class="dg-label" x="1356" y="396">stock at</text><text class="dg-label" x="1356" y="424">sunrise</text></svg>
+    </figure>
+    <ol class="legend">
+      <li><b>Reads the game</b> Once, shared with every module. Read-only.</li>
+      <li><b>Style kit</b> Module windows in the game's own look.</li>
+      <li><b>Module API</b> Small public API, open source (MIT).</li>
+      <li><b>Modules</b> Each its own download, each needs Core.</li>
+      <li><b>Stock at sunrise</b> Supply Lines is the only module that changes the game.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <div class="mtext" data-module-text="core"></div>
+  </section>
+
+  <footer class="foot">
+    <p>Site © 2026 DGE (Dmytro Bielyi) · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> · Mod code: <a href="https://opensource.org/license/mit">MIT</a> · Fan-made mod, not affiliated with the developers of Infection Free Zone · Map data: Natural Earth (public domain)</p>
+    <p><a href="https://github.com/Dimi-GE">GitHub: Dimi-GE</a></p>
+  </footer>
+</main>
+
+<script src="module-texts.js"></script>
+<script src="modules.js"></script>
+</body>
+</html>

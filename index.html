@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Reclaim The World</title>
-<meta name="description" content="Reclaim The World: a supply-lines mod for Infection Free Zone. Roadmap and board.">
+<meta name="description" content="Reclaim The World: a supply-lines mod for Infection Free Zone. Roadmap, modules and board.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@600;800&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -23,6 +23,7 @@
     <div class="hero-row">
       <nav class="hero-links" aria-label="Sections">
         <a href="#roadmap">Roadmap</a>
+        <a href="#modules">Modules</a>
         <a href="#board">Board</a>
         <a href="#feedback">Feedback</a>
       </nav>
@@ -32,47 +33,39 @@
   <section id="roadmap" class="card">
     <div class="section-head">
       <h2>Roadmap</h2>
-      <p class="note">One complete mechanic per release. No dates.</p>
+      <p class="note">One complete mechanic per stop. No dates. Details in <a href="#modules">Modules</a>.</p>
     </div>
 
     <ol class="route">
-      <li class="stop done">
+      <li class="stop done" data-module="core">
         <div class="stop-head"><span class="stop-tag">Groundwork</span><span class="status s-done">Done</span></div>
-        <p>Game code mapped, build pipeline in place, a data plugin reading the settlement live.</p>
       </li>
-      <li class="stop done">
-        <div class="stop-head"><span class="stop-tag">Release 1 · Settlement Panel</span><span class="status s-done">Done</span></div>
-        <p>Built and tested; published with the public release.</p>
-        <ul>
-          <li>An in-game panel for the current settlement, in the game's own style (F8)</li>
-          <li>Production by building: workers, recipes, inputs and outputs</li>
-          <li>Balance per resource: produced, used, net, stock</li>
-          <li>Select a resource to see what makes it and what uses it</li>
-          <li>Install guide</li>
-        </ul>
+      <li class="stop done" data-module="settlement-panel">
+        <div class="stop-head"><span class="stop-tag">Settlement Panel</span><span class="status s-done">Done</span></div>
       </li>
-      <li class="stop done">
-        <div class="stop-head"><span class="stop-tag">Release 2 · Supply lines</span><span class="status s-done">Done</span></div>
-        <p>The core of the mod: the Supply Lines module.</p>
-        <ul>
-          <li>When the convoy leaves, the settlement's full state is saved</li>
-          <li>Every sunrise, each old settlement's surplus arrives at the current one</li>
-          <li>Surplus that doesn't fit in storage waits for the next sunrise</li>
-          <li>Shortfalls follow the game's own rules: the current settlement covers the gap</li>
-          <li>Chains of settlements: every settlement left behind keeps shipping</li>
-          <li>Page through the settlements in the panel</li>
-        </ul>
+      <li class="stop done" data-module="supply-lines">
+        <div class="stop-head"><span class="stop-tag">Supply Lines</span><span class="status s-done">Done</span></div>
       </li>
       <li class="stop">
-        <div class="stop-head"><span class="stop-tag">Public release · Nexus Mods</span><span class="status s-planned">Planned</span></div>
-        <p>Core, Settlement Panel and Supply Lines published on Nexus Mods, with an install guide.</p>
+        <div class="stop-head"><span class="stop-tag">Nexus Mods</span><span class="status s-planned">Planned</span></div>
       </li>
       <li class="stop">
-        <div class="stop-head"><span class="stop-tag">Release 3 · Settlement overview</span><span class="status s-planned">Planned</span></div>
-        <p>A larger view on the pause screen: the settlements on the globe, click one for its stats. If the globe can't be reused, a list with richer stats instead.</p>
+        <div class="stop-head"><span class="stop-tag">Settlement Overview</span><span class="status s-planned">Planned</span></div>
       </li>
     </ol>
     <p class="note">Everything beyond this lives on the board as ideas: remote management, specialised settlements, trading.</p>
+  </section>
+
+  <section id="modules" class="card">
+    <div class="section-head">
+      <h2>Modules</h2>
+      <p class="note">Everything built on the Core API. Each module belongs to whoever builds it. Open a card for its description.</p>
+    </div>
+    <ul id="module-grid" class="modules"></ul>
+    <div id="contribute" class="contrib">
+      <h3>Build a module</h3>
+      <p>Core is open source (MIT) with a small API for modules. The developer kit is available on request: open a <a href="https://github.com/Dimi-GE/ifz-reclaim-the-world/issues">GitHub issue</a>. A module stays its author's: a listing here with details, or a link to the author's own site.</p>
+    </div>
   </section>
 
   <section id="board" class="card">
@@ -121,7 +114,7 @@
 
       <div class="field">
         <label for="fb-body">Details</label>
-        <textarea id="fb-body" rows="5" placeholder="What happened, what you expected, steps to repeat it."></textarea>
+        <textarea id="fb-body" rows="5" placeholder="What happened, what was expected, steps to repeat it."></textarea>
       </div>
 
       <div class="field-row" id="version-fields">
@@ -144,17 +137,24 @@
   <section id="about" class="card card-quiet">
     <h2>How it's built</h2>
     <p>Originated by Dimi-GE, powered by Claude.</p>
-    <p>Contributors: your name could be here.</p>
+    <p>Contributors: your name could be here. <a href="#contribute">Build a module</a>.</p>
   </section>
 
   <footer class="foot">
-    <p>© 2026 DGE (Dmytro Bielyi) · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> · Fan-made mod, not affiliated with the developers of Infection Free Zone · Map data: Natural Earth (public domain)</p>
+    <p>Site © 2026 DGE (Dmytro Bielyi) · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> · Mod code: <a href="https://opensource.org/license/mit">MIT</a> · Fan-made mod, not affiliated with the developers of Infection Free Zone · Map data: Natural Earth (public domain)</p>
     <p><a href="https://github.com/Dimi-GE">GitHub: Dimi-GE</a></p>
   </footer>
 </main>
 
+<dialog id="module-pop" class="pop" aria-labelledby="pop-title">
+  <button type="button" class="pop-close" aria-label="Close">×</button>
+  <div id="pop-body"></div>
+</dialog>
+
 <script src="land.js"></script>
 <script src="board.js"></script>
+<script src="module-texts.js"></script>
+<script src="modules.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -187,6 +187,36 @@
   window.addEventListener("resize", resize);
   resize();
 
+  /* ---------- Modules (data + text helpers in modules.js, texts in module-texts.js) ---------- */
+  // Status badge = the Roadmap stop with the same data-module: one source.
+  function moduleBadge(key) {
+    const s = document.querySelector(`#roadmap [data-module="${key}"] .status`);
+    return s ? `<span class="${esc(s.className)}">${esc(s.textContent)}</span>` : "";
+  }
+  document.getElementById("module-grid").innerHTML = MODULES.map(m => {
+    const top = `<span class="m-top"><span class="m-icon" aria-hidden="true"><span>${esc(m.icon)}</span></span>${m.tag ? `<span class="m-tag">${esc(m.tag)}</span>` : ""}</span>`;
+    const body = `<span class="m-head"><span class="m-name">${esc(m.name)}</span>${m.open ? `<span class="status s-open">Open slot</span>` : moduleBadge(m.key)}</span>
+      <span class="m-by">by ${esc(m.by)}</span><span class="m-text">${esc(m.text)}</span>`;
+    return m.open
+      ? `<li><a class="m-card m-open" href="#contribute">${top}${body}</a></li>`
+      : `<li><button type="button" class="m-card" data-pop="${esc(m.key)}">${top}${body}</button></li>`;
+  }).join("");
+
+  // Pop-out: the module's description (native dialog: Esc, focus return).
+  const pop = document.getElementById("module-pop"), popBody = document.getElementById("pop-body");
+  document.getElementById("module-grid").addEventListener("click", e => {
+    const b = e.target.closest("[data-pop]"); if (!b) return;
+    const m = MODULES.find(x => x.key === b.dataset.pop);
+    popBody.innerHTML = `<p class="eyebrow">Module · by ${esc(m.by)}</p>
+      <h2 id="pop-title">Reclaim The World ${esc(m.name)}</h2>
+      ${moduleTextHtml(m.key)}
+      <p class="pop-link"><a href="${esc(m.key)}.html">Module page →</a></p>`;
+    pop.showModal();
+    pop.scrollTop = 0;
+  });
+  pop.querySelector(".pop-close").onclick = () => pop.close();
+  pop.addEventListener("click", e => { if (e.target === pop) pop.close(); });   // click on the backdrop
+
   /* ---------- Board (GitHub Issues, logic in board.js) ---------- */
   const ISSUES_URL = "https://github.com/Dimi-GE/ifz-reclaim-the-world/issues";
   // ponytail: first 100 issues only; add Link-header paging past 100.
