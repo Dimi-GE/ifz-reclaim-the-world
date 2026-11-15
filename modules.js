@@ -8,9 +8,7 @@ const MODULES = [
     nexus: "https://www.nexusmods.com/infectionfreezone/mods/111" },
   { key: "supply-lines", name: "Supply Lines", by: "Dimi-GE", icon: "⇢",
     text: "Old settlements keep producing; their surplus arrives at every sunrise.",
-    nexus: "https://www.nexusmods.com/infectionfreezone/mods/112" },
-  { name: "New module", by: "anyone", icon: "+", open: true,
-    text: "Open slot for a module built on the Core API. A module stays its author's: listed here with details, or a link to the author's own site." }
+    nexus: "https://www.nexusmods.com/infectionfreezone/mods/112" }
 ];
 // Shown only for a module without a `nexus` link yet.
 const DOWNLOAD_NOTE = "Downloads: on Nexus Mods once published.";
