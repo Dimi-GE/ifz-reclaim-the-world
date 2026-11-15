@@ -209,7 +209,7 @@
     const m = MODULES.find(x => x.key === b.dataset.pop);
     popBody.innerHTML = `<p class="eyebrow">Module · by ${esc(m.by)}</p>
       <h2 id="pop-title">Reclaim The World ${esc(m.name)}</h2>
-      ${moduleTextHtml(m.key)}
+      ${moduleTextHtml(m.key, true)}
       <p class="pop-link"><a href="${esc(m.key)}.html">Module page →</a></p>`;
     pop.showModal();
     pop.scrollTop = 0;
