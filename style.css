@@ -403,14 +403,13 @@ textarea { resize: vertical; }
 .legend li::before { content: counter(n); position: absolute; left: 0; top: 0; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--signal); color: var(--night); font: 500 .8125rem/1.5rem var(--f-mono); text-align: center; }
 .legend b { color: var(--home); font-weight: 600; }
 
-/* Screenshot mode (?shot): the diagram alone, filling the viewport width on --night */
+/* Screenshot mode (?shot): the diagram card with its legend, centred, sized to fit one 16:9 screen (capture at 1920x1080) */
 .shot-only { background: var(--night); }
-.shot-only .page { max-width: none; padding: 0; gap: 0; }
+.shot-only .page { max-width: none; min-height: 100vh; padding: 0; gap: 0; display: grid; place-items: center; }
 .shot-only .page > :not(.diagram) { display: none; }
-.shot-only .legend { display: none; }
-.shot-only .diagram { padding: 0; border: 0; border-radius: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
-.shot-only .shot { min-height: 100vh; display: grid; place-items: center; }
-.shot-only .shot svg { width: min(100vw, calc(100vh * 16 / 9)); border-radius: 0; }
+.shot-only .diagram { box-sizing: border-box; width: min(94vw, calc((100vh - 21rem) * 16 / 9)); }
+.shot-only .legend { grid-template-columns: repeat(3, 1fr); }
+.shot-only .legend li { font-size: max(.9375rem, 1.6vh); }
 
 /* Diagram classes (inline SVGs on the module pages; site palette only) */
 .dg-bg { fill: var(--night); }

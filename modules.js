@@ -8,7 +8,10 @@ const MODULES = [
     nexus: "https://www.nexusmods.com/infectionfreezone/mods/111" },
   { key: "supply-lines", name: "Supply Lines", by: "Dimi-GE", icon: "⇢",
     text: "Old settlements keep producing; their surplus arrives at every sunrise.",
-    nexus: "https://www.nexusmods.com/infectionfreezone/mods/112" }
+    nexus: "https://www.nexusmods.com/infectionfreezone/mods/112" },
+  { key: "distant-traveling", name: "Distant Traveling", by: "Dimi-GE", icon: "⌖",
+    text: "Migrate anywhere on the globe; far picks get their own special zones.",
+    nexus: "https://www.nexusmods.com/infectionfreezone/mods/126" }
 ];
 // Shown only for a module without a `nexus` link yet.
 const DOWNLOAD_NOTE = "Downloads: on Nexus Mods once published.";
