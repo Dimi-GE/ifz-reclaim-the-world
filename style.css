@@ -210,6 +210,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .stop.current::before { background: var(--home); border-color: var(--home); box-shadow: 0 0 0 4px rgba(242, 210, 155, 0.18); }
 .stop-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.75rem; }
 .stop-tag { font-weight: 600; font-size: 1.0625rem; }
+.stop-text { margin: 0; max-width: 40rem; color: var(--muted); font-size: .9375rem; line-height: 1.45; } /* idea line under a planned stop */
 
 .status {
   font-family: var(--f-mono);
